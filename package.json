@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "push-schema": "drizzle-kit push:pg",
-    "migrate": "drizzle-kit generate:pg"
+    "migrate": "drizzle-kit generate:pg",
+    "seed": "node -r esbuild-register ./scripts/seed.ts",
+    "drop": "node -r esbuild-register ./scripts/drop.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
@@ -19,6 +21,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

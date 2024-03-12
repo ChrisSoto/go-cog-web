@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1710270575506,
+      "tag": "0000_cute_paibok",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1710270748279,
+      "tag": "0001_regular_jetstream",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1710272131742,
+      "tag": "0002_fuzzy_anita_blake",
+      "breakpoints": true
+    }
+  ]
+}
