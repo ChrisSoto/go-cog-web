@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Modal from "../ui/components/Modal";
 
+import { db } from "@/lib/db/db";
+import { users, workingMemoryTrials } from "@/lib/db/schema";
+import { sql } from "drizzle-orm";
+
 type SearchParamProps = {
   searchParams: Record<string, string> | null | undefined;
 }

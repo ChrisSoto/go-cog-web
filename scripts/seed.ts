@@ -14,9 +14,9 @@ async function main(numOfUsers: number, maxTrialsPerUser: number) {
   console.log("deleting old data");
 
   await db.execute(sql`
-    delete from users *;
     delete from working_memory_trials *;
     delete from working_memory_experiments *;
+    delete from users *;
   `);
 
   console.log("seeding started");
@@ -48,23 +48,23 @@ async function main(numOfUsers: number, maxTrialsPerUser: number) {
       },
     ]).returning();
 
-    // for (let k = 0; k < experiments.length; k++) {
-    //   const experimentId = experiments[k].id;
-    //   const trials = Math.round(Math.random() * maxTrialsPerUser);
-    //   for (let l = 0; l < trials; l++) {
-    //     await db.insert(workingMemoryTrials).values({
-    //       experimentId: experimentId,
-    //       trial: l,
-    //       modality: 'DIGITS',
-    //       correct: l % 2 === 0 ? true : false,
-    //       length: Math.round(Math.random() * 5) + 1,
-    //       original: faker.lorem.word(),
-    //       entered: faker.lorem.word(),
-    //       pace: Math.round(Math.random() * 1000) + 1,
-    //       sound: Math.random() < 0.5 ? true : false,
-    //     });
-    //   }
-    // }
+    for (let k = 0; k < experiments.length; k++) {
+      const experimentId = experiments[k].id;
+      const trials = Math.round(Math.random() * maxTrialsPerUser);
+      for (let l = 0; l < trials; l++) {
+        await db.insert(workingMemoryTrials).values({
+          experimentId: experimentId,
+          trial: l,
+          modality: 'DIGITS',
+          correct: l % 2 === 0 ? true : false,
+          length: Math.round(Math.random() * 5) + 1,
+          original: faker.lorem.word(),
+          entered: faker.lorem.word(),
+          pace: Math.round(Math.random() * 1000) + 1,
+          sound: Math.random() < 0.5 ? true : false,
+        });
+      }
+    }
   }
 
   console.log("seed completed");
